@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 
-import pruebaReducer from './pruebaReducer';
+import contact from './contactReducer';
 
 
 export default combineReducers({
-    pruebaReducer
+    contact
 })
