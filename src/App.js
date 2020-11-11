@@ -9,15 +9,20 @@ import Contact from './components/contact';
 // Styles Bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+// libraries 
+
+
 const App = () => {
     return (
         <Provider store={store} >
             <BrowserRouter>
-                <Route path='/' component={Contact} />
+                <Route
+                    exact
+                    path='/contact'
+                    component={Contact}
+                />
             </BrowserRouter>
-
         </Provider>
-
     );
 }
 

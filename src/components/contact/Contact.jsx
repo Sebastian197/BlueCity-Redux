@@ -1,43 +1,22 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { position } from '../../redux/actions/contactActions';
-
 
 // Components
-import ScreemMap from './ScreemMap';
+import Navigation from '../layouts/Navigation';
+import ContainerContact from './ContainerContact';
+import Footer from '../layouts/Footer';
 
-
-const Contact = ({ coords: { lat, lng }, zoom }) => {
-
-    const position = [lat, lng];
+const Contact = ({ history }) => {
 
     return (
-        <div>
-            <h1>Contact</h1>
-            <ScreemMap
-                position={position}
-                zoom={zoom}
+        <>
+            <Navigation
+                history={history}
             />
-        </div>
+            <ContainerContact />
+            <Footer />
+        </>
     )
 };
 
-const mapStateToProps = (state) => {
-    console.log(state);
-    return {
-        coords: state.contact.coords,
-        zoom: state.contact.zoom
 
-    }
-};
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        position: () => dispatch(position())
-    }
-}
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Contact);
+export default Contact;

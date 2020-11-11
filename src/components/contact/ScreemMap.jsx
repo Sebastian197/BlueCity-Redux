@@ -1,27 +1,35 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { position } from '../../redux/actions/contactActions';
 
 // libraries
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
+// styled-components
 import styled from 'styled-components';
 
 // Styles
-const MyMap = styled(MapContainer)`
+import './ScreemMap.css';
+
+const MapCenter = styled(MapContainer)`
   &.leaflet-container {
-    width: 50%;
-    height: 50vh;
-    position: absolute;
-    left: 25%;
-    top: 25%;
+    width: 100%;
+    height: 100vh;
   }
 `;
 
 
-const ScreemMap = ({ position, zoom }) => {
+const ScreemMap = ({ coords: { lat, lng }, zoom }) => {
+
+    const position = [lat, lng];
 
     return (
-        <MyMap center={position} zoom={zoom}>
+        <MapCenter
+            center={position}
+            zoom={zoom}
+            className='show'
+        >
             <TileLayer
                 attribution=''
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -34,9 +42,27 @@ const ScreemMap = ({ position, zoom }) => {
                     I miss it so much.
                 </Popup>
             </Marker>
-        </MyMap>
+        </MapCenter>
     )
 
 }
 
-export default ScreemMap;
+const mapStateToProps = (state) => {
+
+    return {
+        coords: state.contact.coords,
+        zoom: state.contact.zoom
+
+    }
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        position: () => dispatch(position())
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(ScreemMap);
