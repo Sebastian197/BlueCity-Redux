@@ -10,7 +10,7 @@ import 'leaflet/dist/leaflet.css';
 import styled from 'styled-components';
 
 // Styles
-import './ScreemMap.css';
+import './ScreenMap.css';
 
 const MapCenter = styled(MapContainer)`
   &.leaflet-container {
@@ -20,7 +20,7 @@ const MapCenter = styled(MapContainer)`
 `;
 
 
-const ScreemMap = ({ coords: { lat, lng }, zoom }) => {
+const ScreenMap = ({ coords: { lat, lng }, zoom }) => {
 
     const position = [lat, lng];
 
@@ -65,4 +65,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(ScreemMap);
+)(ScreenMap);

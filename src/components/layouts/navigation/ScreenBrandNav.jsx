@@ -10,7 +10,7 @@ const Icon = styled.img`
     width: 1em;
 `;
 
-const BrandNav = () => {
+const ScreenBrandNav = () => {
     return (
         <>
             <Navbar.Brand href='/main'>
@@ -27,4 +27,4 @@ const BrandNav = () => {
     )
 }
 
-export default BrandNav;
+export default ScreenBrandNav;

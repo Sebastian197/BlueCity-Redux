@@ -1,33 +1,23 @@
 import React from 'react';
 
 // Componets
-import ScreemMap from './ScreemMap';
+import { ScreenContainer } from '../utils/ScreenContainer';
+import ScreenMap from './ScreenMap';
 
 // react-bootstrap
-import { Container, Row, Col } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 
-// styled-component
-import styled from 'styled-components';
-
-const ContContact = styled(Container)`
-    height: 100vh;
-    &:after { 
-        content:''; 
-        float:left;
-        margin-bottom: 2em;
-    }
-`;
 
 const ContainerContact = () => {
     return (
-        <ContContact>
+        <ScreenContainer>
             <Row>
                 <Col>
-                    <ScreemMap />
+                    <ScreenMap />
                 </Col>
             </Row>
-        </ContContact>
+        </ScreenContainer>
     )
 }
 
-export default ContainerContact
+export default ContainerContact;

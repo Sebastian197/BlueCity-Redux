@@ -1,9 +1,9 @@
 import React from 'react';
 
 // Components
-import Logo from './Logo';
-import Copyright from './Copyright';
-import ListFooter from './ListFooter';
+import ScreenLogo from './ScreenLogo';
+import ScreenCopyright from './ScreenCopyright';
+import ScreenListFooter from './ScreenListFooter';
 
 // styled-components
 import styled from 'styled-components';
@@ -23,6 +23,7 @@ const RowFooter = styled(Row)`
 
 
 const ContainerFooter = () => {
+
     return (
         <ContFoot fluid>
             <RowFooter>
@@ -30,19 +31,34 @@ const ContainerFooter = () => {
                     md={6}
                     className='mt-md-0 mt-3'
                 >
-                    <Logo />
+                    <ScreenLogo
+                        src='img/bluecity-dark.jpg'
+                        alt='Logo'
+                    />
                 </Col>
                 <Col
                     md={3}
                     className='mb-md-0 mb-3'
                 >
-                    <ListFooter
+                    <ScreenListFooter
                         title='Participant Organizations'
-                    />
+                    >
+                        {[
+                            { href: 'http://www.ieselrincon.es', content: 'IES El Rincón', target: '_blank', rel: 'noreferrer' },
+                            { href: 'https://moodle.bernatelferrer.cat/', content: 'Institut Bernat el Ferrer', target: '_blank', rel: 'noreferrer' },
+                            { href: 'http://iesesteveterradas.cat/', content: 'Institut Esteve Terradas', target: '_blank', rel: 'noreferrer' },
+                            { href: 'https://www.furiouskoalas.com/', content: 'Furious Koalas', target: '_blank', rel: 'noreferrer' },
+                        ]}
+                    </ScreenListFooter>
                 </Col>
             </RowFooter>
 
-            <Copyright />
+            <ScreenCopyright
+                href='https://creativecommons.org/licenses/by-sa/3.0/'
+                content='Creative Commons Attribution-Share Alike 3.0 License'
+            >
+                Copyright information: Unless otherwise specified, all text and images on this website are licensed under the
+            </ScreenCopyright>
         </ContFoot>
     )
 }

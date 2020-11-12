@@ -1,8 +1,8 @@
 import React from 'react';
 
 // Components
-import BrandNav from './BrandNav';
-import ItemsNav from './ItemsNav';
+import ScreenBrandNav from './ScreenBrandNav';
+import ScreenItemsNav from './ScreenItemsNav';
 
 // styled-components
 import styled from 'styled-components';
@@ -20,12 +20,12 @@ const ContainerNavigation = ({ history }) => {
             bg='light'
             expand='md'
         >
-            <BrandNav />
+            <ScreenBrandNav />
 
             <Navbar.Collapse
                 id="basic-navbar-nav"
             >
-                <ItemsNav
+                <ScreenItemsNav
                     history={history}
                 />
             </Navbar.Collapse>
